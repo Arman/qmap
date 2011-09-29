@@ -36,7 +36,7 @@ group :development do
   gem 'rspec-rails', '2.6.1'
   gem 'autotest', '4.4.6'
   gem 'autotest-rails-pure', '4.1.2'
-#  gem 'autotest-notification', '~> 2.3.3'
+  gem 'autotest-standalone', '4.5.8'
 
 
 end

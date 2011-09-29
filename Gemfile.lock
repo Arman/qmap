@@ -33,6 +33,7 @@ GEM
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
     autotest-rails-pure (4.1.2)
+    autotest-standalone (4.5.8)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (2.1.2)
     capistrano (2.9.0)
@@ -120,6 +121,7 @@ PLATFORMS
 DEPENDENCIES
   autotest (= 4.4.6)
   autotest-rails-pure (= 4.1.2)
+  autotest-standalone (= 4.5.8)
   capistrano
   devise (~> 1.4.6)
   geocoder
