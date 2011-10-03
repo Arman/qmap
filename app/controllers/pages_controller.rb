@@ -6,5 +6,9 @@ class PagesController < ApplicationController
   def about
     @subtitle = "About"
   end
+  
+  def help
+    @subtitle = "Help"
+  end
 
 end

@@ -1,9 +1,10 @@
 Qmap::Application.routes.draw do
-  get "pages/about"
-
-  get "pages/contact"
-
+  
   devise_for :users
+  
+  match '/contact', :to => 'pages#contact'
+  match '/about',   :to => 'pages#about'
+  match '/help',    :to => 'pages#help'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
