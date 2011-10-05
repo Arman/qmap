@@ -1,0 +1,11 @@
+<% form_for(@quest) do |f| %>
+Name: <%= f.text_field :name %>
+<br/>
+Description:
+<br/>
+<%= f.text_area :description, :cols => 60 %>
+<br/>
+Due Date: <%= date_select f, :due_date %>
+<br/>
+<%= f.submit "Go!" %>
+<% end %>
