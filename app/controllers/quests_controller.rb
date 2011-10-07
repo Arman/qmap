@@ -16,9 +16,10 @@ class QuestsController < ApplicationController
   def create
     @quest = Quest.create params[:quest]
     if @quest.save
-      redirect_to quests_path
+      flash[:success] = "A new quest has been created!"
+      redirect_to @quest
     else
-      redirect_to new_quest_path
+      render 'new'
     end
   end
   
@@ -29,10 +30,10 @@ class QuestsController < ApplicationController
   def update
     @quest = Quest.find(params[:id])
     if @quest.update_attributes(params[:quest])
-      flas
-      redirect_to quest_path(@quest)
+      flash[:success] = "Your quest has been updated!"
+      redirect_to @quest
     else
-      redirect_to edit_quest_path(@quest)
+      render 'edit'
     end
   end
   

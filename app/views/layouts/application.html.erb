@@ -15,6 +15,11 @@
             <p class="notice"><%= notice %></p>
           <% end %>
         </div>
+        
+        <% flash.each do |key, value| %>
+          <div id="flash <%= key %>" class="flash <%= key %>"><%= value %></div>
+        <% end %>
+        
         <div id="alert">
           <% if !alert.nil? %>
             <p class="alert"><%= alert %></p>

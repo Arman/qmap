@@ -1,3 +1,5 @@
-<h1>Quest</h1>
-<b><%= @quest.name %></b>, <%= @quest.description %>
+<h1><%= @quest.name %></h1>
+<br/><%= @quest.description %>
+<br/><%= link_to 'Edit', edit_quest_path(@quest) %>
+<br/><%= link_to 'Remove', @quest, :confirm => 'Are you sure?', :method => :delete %>
 
