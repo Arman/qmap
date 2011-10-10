@@ -1,4 +1,5 @@
 class QuestsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
   
   def index
     @quests=Quest.all
@@ -11,10 +12,12 @@ class QuestsController < ApplicationController
   
   def show
     @quest=Quest.find(params[:id])
+    @user=User.find(@quest.created_by)
   end
   
   def create
     @quest = Quest.create params[:quest]
+    @quest.created_by = current_user
     if @quest.save
       flash[:success] = "A new quest has been created!"
       redirect_to @quest
@@ -40,7 +43,12 @@ class QuestsController < ApplicationController
   def delete
       Quest.find(params[:id]).destroy
       redirect_to quests_path
-   end
+    end
+    
+  def destroy
+    Quest.destroy(params[:id])
+    redirect_to quests_path
+  end
 
 
 end
