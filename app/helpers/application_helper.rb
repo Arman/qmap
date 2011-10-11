@@ -17,5 +17,5 @@ module ApplicationHelper
       "#{base_title} | #{@subtitle}"
     end
   end
-  
+   
 end

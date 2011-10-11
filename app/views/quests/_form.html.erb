@@ -6,6 +6,8 @@ Description:
 <br/>
 <%= f.text_area :description, :cols => 60 %>
 <br/>
+Start Location: <%= f.text_field :address %>
+<br/>
 Due Date: <%= date_select f, :due_date %>
 <br/>
 <%= f.submit "Go!" %>
