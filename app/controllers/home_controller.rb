@@ -9,6 +9,7 @@ class HomeController < ApplicationController
       @quests = Quest.all
       @list_header = "Showing all " + @quests.count.to_s + " active quests."
     end
+    @json = @quests.to_gmaps4rails
   end
 
 end

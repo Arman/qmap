@@ -1,5 +1,3 @@
-<h1>Find Quests</h1>
-
 <%= form_tag root_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
@@ -13,6 +11,7 @@
 <% if @quests.empty? then %>
 Try another search!
 <% else %>
+<%= gmaps4rails(@json) %>
 <table>
   <tr>
     <th>Name</th>
@@ -30,7 +29,6 @@ Try another search!
 <% end %>
  
 <br/>
- 
 <%= link_to 'Create a new quest', new_quest_path %>
 
 
