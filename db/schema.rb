@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111011165858) do
+ActiveRecord::Schema.define(:version => 20111013185040) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "quest_id"
+    t.integer  "quester_id"
+    t.datetime "responded_at"
+    t.datetime "complated_at"
+    t.datetime "rewarded_at"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "quests", :force => true do |t|
     t.string   "name"

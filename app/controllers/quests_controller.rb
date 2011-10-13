@@ -13,6 +13,8 @@ class QuestsController < ApplicationController
   def show
     @quest=Quest.find(params[:id])
     @user=User.find(@quest.created_by)
+    @new_assignment= @quest.assignments.build
+    @assignment_exists = current_user.nil? ? nil : @quest.assignments.find_by_quester_id(current_user.id)
   end
   
   def create

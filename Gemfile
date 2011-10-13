@@ -25,6 +25,7 @@ gem 'capistrano'
 
 # Geocoding
 gem 'geocoder'
+gem 'gmaps4rails'
 
 # Authentication
 gem "devise", "~> 1.4.6"

@@ -3,11 +3,13 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  has_many :quests 
   
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  
+  has_many :quests 
+  has_many :assignments
+  has_many :assigned_quests, :through => :assignments, :class_name => "Quest", :foreign_key => "quest_id"
   
   
 end

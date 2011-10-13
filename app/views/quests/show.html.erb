@@ -4,6 +4,15 @@
 <br/><%= @quest.address %>
 <br/><%= @quest.latitude %>
 <br/><%= @quest.longitude %>
+
+
+<h3>Apply for this quest:</h3>
+<%= form_for([@quest, @quest.assignments.build]) do |f| %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+ 
 <br/><%= link_to 'Edit', edit_quest_path(@quest) %>
 <br/><%= link_to 'Remove', @quest, :confirm => 'Are you sure?', :method => :delete %>
 <br/><%= link_to 'Show All Quests', quests_path %>

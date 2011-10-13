@@ -2,7 +2,11 @@ Qmap::Application.routes.draw do
 
   devise_for :users
   
-  resources :quests
+  resources :quests do
+    resources :assignments
+  end
+  
+  resources :assignments
   
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
