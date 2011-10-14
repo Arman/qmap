@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111013185040) do
+ActiveRecord::Schema.define(:version => 20111014212942) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "quest_id"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(:version => 20111013185040) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "cash_reward_amount"
+    t.integer  "point_reward_amount"
+    t.text     "special_reward_description"
   end
 
   create_table "users", :force => true do |t|

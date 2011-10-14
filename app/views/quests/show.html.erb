@@ -2,9 +2,9 @@
 <br/>Created by  <%= @quest.created_by.email %> on <%= @quest.created_at.to_date %> at <%= @quest.created_at.strftime('%H:%M:%S') %>
 <br/><%= @quest.description %>
 <br/><%= @quest.address %>
-<br/><%= @quest.latitude %>
-<br/><%= @quest.longitude %>
-
+<br/><%= @quest.cash_reward_amount %>
+<br/><%= @quest.point_reward_amount %>
+<br/><%= @quest.special_reward_description %>
 
 <h3>Apply for this quest:</h3>
 <%= form_for([@quest, @quest.assignments.build]) do |f| %>

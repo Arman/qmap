@@ -6,6 +6,12 @@ Description:
 <br/>
 <%= f.text_area :description, :cols => 60 %>
 <br/>
+Cash Reward: <%= f.text_field :cash_reward_amount %>
+<br/>
+Point Reward: <%= f.text_field :point_reward_amount %>
+<br/>
+Special Reward (Describe any reward you like) : <%= f.text_field :special_reward_description %>
+<br/>
 Start Location: <%= f.text_field :address %>
 <br/>
 Due Date: <%= date_select f, :due_date %>
