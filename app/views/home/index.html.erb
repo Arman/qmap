@@ -9,27 +9,25 @@
 
 <h3>    <%= @list_header %> </h3>
 <% if @quests.empty? then %>
-Try another search!
+Try another search or <%= link_to 'create a new quest', new_quest_path %> for others!
 <% else %>
 <%= gmaps4rails(@json) %>
 <table>
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th></th>
   </tr>
 <% @quests.each do |quest| %>
   <tr>
-    <td><%= quest.name  %></td>
+    <td><%= link_to quest.name, quest %></td>
     <td><%= quest.description %></td>
-    <td><%= link_to 'Show', quest %></td>
   </tr>
 <% end %>
 </table>
 <% end %>
  
 <br/>
-<%= link_to 'Create a new quest', new_quest_path %>
+<%= link_to 'New quest', new_quest_path %>
 
 
 

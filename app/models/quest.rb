@@ -24,6 +24,11 @@ class Quest < ActiveRecord::Base
     #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
     "#{self.address}" 
   end
+  
+  def gmaps4rails_infowindow
+    # add here whatever html content you desire, it will be displayed when users clicks on the marker
+    "#{self.name}" 
+  end
 
 
 end
