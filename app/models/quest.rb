@@ -1,5 +1,5 @@
 class Quest < ActiveRecord::Base
-  attr_accessible :name, :description, :due_date,:address,:latitude,:longitude
+  attr_accessible :name, :description, :due_date, :address, :latitude, :longitude, :cash_reward_amount, :point_reward_amount, :special_reward_description
   
   acts_as_gmappable :process_geocoding => false, :lat => "latitude", :lng => "longitude" 
   

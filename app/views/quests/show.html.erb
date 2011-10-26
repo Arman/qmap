@@ -2,14 +2,13 @@
 <br/>Created by  <%= @quest.created_by.email %> on <%= @quest.created_at.to_date %> at <%= @quest.created_at.strftime('%H:%M:%S') %>
 <br/><%= @quest.description %>
 <br/><%= @quest.address %>
-<br/><%= @quest.cash_reward_amount %>
-<br/><%= @quest.point_reward_amount %>
-<br/><%= @quest.special_reward_description %>
-
-<h3>Apply for this quest:</h3>
+<%= if @quest.cash_reward_amount then ("<br/>Cash Reward: "+ @quest.cash_reward_amount.to_s).html_safe end %>
+<%= if @quest.point_reward_amount then ("<br/>Points: " + @quest.point_reward_amount.to_s).html_safe end %>
+<%= if @quest.special_reward_description then ("<br/>Special Reward: " + @quest.special_reward_description).html_safe end %>
+<br/>
 <%= form_for([@quest, @quest.assignments.build]) do |f| %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Apply for this quest" %>
   </div>
 <% end %>
  
