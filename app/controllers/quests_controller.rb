@@ -3,6 +3,7 @@ class QuestsController < ApplicationController
   
   def index
     @quests=Quest.all
+    @list_header = "Listing All Quests"
   end
   
   def new

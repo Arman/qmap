@@ -3,7 +3,7 @@
   <nav class="round">
     <ul>
       <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Help", help_path %></li>
+      <li><%= link_to "Quests", quests_path %></li>
       <li>
         <% if user_signed_in? %>
           Signed in as <%= current_user.email %>. Not you? <%=link_to "Sign out", destroy_user_session_path, :method => :delete %>

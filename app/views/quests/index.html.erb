@@ -1,25 +1,23 @@
-<h1>Listing quests</h1>
- 
+<h3>    <%= @list_header %> </h3>
+<%= link_to 'New quest', new_quest_path %>
+<br/>
+<% if @quests.empty? then %>
+We are out of quests! <%= link_to 'Create a new quest!', new_quest_path %> for others!
+<% else %>
 <table>
   <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Quest</th>
+    <th><%= image_tag "dollar.png" %></th>
+        <th><%= image_tag "heart.png" %></th>
+            <th><%= image_tag "star.png" %></th>
   </tr>
- 
 <% @quests.each do |quest| %>
   <tr>
-    <td><%= quest.name  %></td>
-    <td><%= quest.description %></td>
-    <td><%= link_to 'Show', quest %></td>
-    <td><%= link_to 'Edit', edit_quest_path(quest) %></td>
-    <td><%= link_to 'Remove', quest, :confirm => 'Are you sure?', :method => :destroy %></td>
+    <td><%= link_to quest.name, quest %></td>
+    <td><%= if quest.cash_reward_amount then image_tag "check_green.png" end %></td>
+    <td><%= if quest.point_reward_amount then image_tag "check_red.png" end %></td>
+    <td><%= if !quest.special_reward_description.blank? then image_tag "check_yellow.png" end %></td>
   </tr>
 <% end %>
 </table>
- 
-<br />
- 
-<%= link_to 'New quest', new_quest_path %>
+<% end %>

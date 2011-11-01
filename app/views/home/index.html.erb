@@ -14,13 +14,17 @@ Try another search or <%= link_to 'create a new quest', new_quest_path %> for ot
 <%= gmaps4rails(@json) %>
 <table>
   <tr>
-    <th>Name</th>
-    <th>Description</th>
+    <th>Quest</th>
+    <th><%= image_tag "dollar.png" %></th>
+        <th><%= image_tag "heart.png" %></th>
+            <th><%= image_tag "star.png" %></th>
   </tr>
 <% @quests.each do |quest| %>
   <tr>
     <td><%= link_to quest.name, quest %></td>
-    <td><%= quest.description %></td>
+    <td><%= if quest.cash_reward_amount then image_tag "check_green.png" end %></td>
+    <td><%= if quest.point_reward_amount then image_tag "check_red.png" end %></td>
+    <td><%= if !quest.special_reward_description.blank? then image_tag "check_yellow.png" end %></td>
   </tr>
 <% end %>
 </table>

@@ -21,9 +21,10 @@ class Quest < ActiveRecord::Base
   validates :created_by,  :presence => true
   
   validate :any_present?
+  
 
   def any_present?
-    if %w(cash_reward_quantity point_reward_quantity special_reward).all?{|attr| self[attr].blank?&&self[attr].to_s>"0"}
+    if %w(cash_reward_amount point_reward_amount special_reward_description).all?{|attr| self[attr].blank? } 
       errors.add_to_base("You should provide at least one type of reward!")
     end
   end
