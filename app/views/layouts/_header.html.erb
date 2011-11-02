@@ -1,16 +1,17 @@
-<header>
-  <%= link_to logo, root_path %>
-  <nav class="round">
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Quests", quests_path %></li>
-      <li>
-        <% if user_signed_in? %>
-          Signed in as <%= current_user.email %>. Not you? <%=link_to "Sign out", destroy_user_session_path, :method => :delete %>
-        <% else %>
-          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-        <% end %>
-      </li>
-    </ul>
-  </nav>
-</header>
+<div class="topbar-wrapper" style="z-index: 5;">
+    <div class="topbar" data-dropdown="dropdown">
+      <div class="topbar-inner">
+        <div class="container">
+        
+          <h3><a href="/">QMap</a></h3>
+          <ul class="nav">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Quests", quests_path %></li>
+          </ul>       
+              <%= render 'shared/sign_in_form' %>  
+            
+        </div>
+      </div><!-- /topbar-inner -->
+    </div><!-- /topbar -->
+  </div><!-- /topbar-wrapper -->
+  
