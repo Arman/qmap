@@ -1,20 +1,52 @@
-<% form_for(@quest) do |f| %>
-<%= render 'shared/error_messages' %>
-Name: <%= f.text_field :name %>
-<br/>
-Description:
-<br/>
-<%= f.text_area :description, :cols => 60 %>
-<br/>
-Cash Reward: <%= f.text_field :cash_reward_amount %>
-<br/>
-Point Reward: <%= f.text_field :point_reward_amount %>
-<br/>
-Special Reward (Describe any reward you like) : <%= f.text_field :special_reward_description %>
-<br/>
-Start Location: <%= f.text_field :address %>
-<br/>
-Due Date: <%= date_select f, :due_date %>
-<br/>
-<%= f.submit "Go!" %>
-<% end %>
+<div class="span12">
+      <% form_for(@quest) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <div class="clearfix">
+          <%= f.label :Name, :for => "xlInput" %>
+          <div class="input">
+            <%= f.text_field :name %>
+          </div>
+        </div>
+        <div class="clearfix">
+          <%= f.label :Description, :for => "textarea"  %>
+           <div class="input">
+            <%= f.text_area :description, :class => "xxlarge", :rows => "3"%>
+          </div>
+        </div>  
+        <div class="clearfix">
+          <%= f.label :Cash_Reward, :for => "xlInput" %>
+           <div class="input">
+            <%= f.text_field :cash_reward_amount %>
+          </div>
+        </div> 
+        <div class="clearfix">
+          <%= f.label :Point_Reward, :for => "xlInput" %>
+           <div class="input">
+            <%= f.text_field :point_reward_amount %>
+          </div>
+        </div> 
+        <div class="clearfix">
+          <%= f.label :Special_Reward, :for => "xlInput" %>
+           <div class="input">
+            <%= f.text_field :special_reward_description %>
+          </div>
+        </div> 
+        <div class="clearfix">
+          <%= f.label :Start_Location, :for => "xlInput" %>
+           <div class="input">
+            <%= f.text_field :address %>
+          </div>
+        </div> 
+        <div class="clearfix">
+          <%= f.label :Due_Date %>
+           <div class="input">
+            <%= date_select f, :due_date,{ :class => "smallselect"}  %>
+          </div>
+        </div> 
+        <div class="clearfix">
+          <div class="input">
+            <%= f.submit "Go!", :class =>"btn small primary" %>
+          </div>
+        </div>
+      <% end %>
+</div>
