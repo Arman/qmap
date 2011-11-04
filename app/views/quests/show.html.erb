@@ -1,23 +1,43 @@
-<h1><%= @quest.name %></h1>
-<br/>Created by  <%= @quest.created_by.email %> on <%= @quest.created_at.to_date %> at <%= @quest.created_at.strftime('%H:%M:%S') %>
-<br/><%= @quest.description %>
-<br/><%= @quest.address %>
-<% if @quest.cash_reward_amount then %>
-  <br/><%= image_tag "dollar.png" %> <%= @quest.cash_reward_amount.to_s.html_safe %>
-<% end %>
-<% if @quest.point_reward_amount then %>
-  <br/><%= image_tag "heart.png" %> <%= @quest.point_reward_amount.to_s.html_safe %>
-<% end %>
-<% if !@quest.special_reward_description.blank? then %>
-  <br/><%= image_tag "star.png" %> <%= @quest.special_reward_description.to_s.html_safe %>
-<% end %>
-<br/>
-<%= form_for([@quest, @quest.assignments.build]) do |f| %>
-  <div class="actions">
-    <%= f.submit "Apply for this quest" %>
+<div class="row">
+  <div class="span16">
+    <h2><%= @quest.name %></h2>
   </div>
-<% end %>
- 
-<br/><%= link_to 'Edit', edit_quest_path(@quest) %>
-<br/><%= link_to 'Remove', @quest, :confirm => 'Are you sure?', :method => :delete %>
-<br/><%= link_to 'Show All Quests', quests_path %>
+</div>
+<div class="row">
+  <div class="span10">
+    <p>Created by  <%= @quest.created_by.email %> on <%= @quest.created_at.to_date %> at <%= @quest.created_at.strftime('%H:%M:%S') %></p>
+    <p><%= @quest.description %></p>
+    <h3> Quest Rewards </h3>
+    <% if @quest.cash_reward_amount then %>
+      <%= image_tag "dollar.png" %> <%= @quest.cash_reward_amount.to_s.html_safe %>  
+    <% end %>
+    <% if @quest.point_reward_amount then %>
+      <%= image_tag "heart.png" %> <%= @quest.point_reward_amount.to_s.html_safe %>  
+    <% end %>
+    <% if !@quest.special_reward_description.blank? then %>
+      <%= image_tag "star.png" %> <%= @quest.special_reward_description.to_s.html_safe %>
+    <% end %>
+  </div>
+  <div class="span6">
+    <% if @quest.address then %>
+      <p> This quest starts at <%= @quest.address %> </p>
+      <%= gmaps("markers" => {"data" => @json}, "map_options" => {"auto_zoom" => false, "zoom" => 11} ) %>
+    <% end %>
+  </div>
+</div>
+<div class ="row">
+  <div class="span16">
+    <%= form_for([@quest, @quest.assignments.build]) do |f| %>
+      <div class="actions">
+        <%= f.submit "Apply for this quest", :class =>"btn primary" %>
+      </div>
+    <% end %>
+  <div class="span16">
+<div>
+<div class ="row">
+  <div class="span16">
+    <br/><%= link_to 'Edit', edit_quest_path(@quest) %>
+    <br/><%= link_to 'Remove', @quest, :confirm => 'Are you sure?', :method => :delete %>
+    <br/><%= link_to 'Show All Quests', quests_path %>
+  </div>
+<div>

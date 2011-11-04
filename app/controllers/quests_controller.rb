@@ -16,6 +16,7 @@ class QuestsController < ApplicationController
     @user=User.find(@quest.created_by)
     @new_assignment= @quest.assignments.build
     @assignment_exists = current_user.nil? ? nil : @quest.assignments.find_by_quester_id(current_user.id)
+    @json = @quest.to_gmaps4rails
   end
   
   def create

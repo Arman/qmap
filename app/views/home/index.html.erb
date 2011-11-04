@@ -1,38 +1,52 @@
-<%= form_tag root_path, :method => :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search Near", :name => "search_near", :class => "btn small primary" %>
-    <%= submit_tag "Show All", :name => "show_all", :class => "btn small" %>
-  </p>
-<% end %>
-
-
-<h3>    <%= @list_header %> </h3>
-<% if @quests.empty? then %>
-  Try another search or <%= link_to 'create a new quest', new_quest_path %> for others!
-<% else %>
-  <br/>
-  <div><%= gmaps4rails(@json) %></div>
-  <br/>
-  <table>
-    <tr>
-      <th>Quest</th>
-      <th><%= image_tag "dollar.png" %></th>
-          <th><%= image_tag "heart.png" %></th>
-              <th><%= image_tag "star.png" %></th>
-    </tr>
-  <% @quests.each do |quest| %>
-    <tr>
-      <td><%= link_to quest.name, quest %></td>
-      <td><%= if quest.cash_reward_amount then image_tag "check_green.png" end %></td>
-      <td><%= if quest.point_reward_amount then image_tag "check_red.png" end %></td>
-      <td><%= if !quest.special_reward_description.blank? then image_tag "check_yellow.png" end %></td>
-    </tr>
-  <% end %>
-  </table>
-<% end %>
+<div class="row">
+  <div class="span16">
+    <%= form_tag root_path, :method => :get do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search Near", :name => "search_near", :class => "btn small primary" %>
+        <%= submit_tag "Show All", :name => "show_all", :class => "btn small" %>
+      </p>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="span16">
+    <h3><%= @list_header %> </h3>
+  </div>
+</div>
+<div class="row">
+  <div class="span16">
+    <% if @quests.empty? then %>
+      <p>Try another search or <%= link_to 'create a new quest', new_quest_path %> for others!</p>
+    <% else %>
+      <%= gmaps4rails(@json) %>
+      <div class="row"><div class="span16">&nbsp</div></div>
+      <div class="row">
+        <div class="span1">&nbsp</div>
+        <div class="span14">
+         <table>
+          <tr>
+            <th>Quest</th>
+            <th><%= image_tag "dollar.png" %></th>
+                <th><%= image_tag "heart.png" %></th>
+                    <th><%= image_tag "star.png" %></th>
+          </tr>
+        <% @quests.each do |quest| %>
+          <tr>
+            <td><%= link_to quest.name, quest %></td>
+            <td><%= if quest.cash_reward_amount then image_tag "check_green.png" end %></td>
+            <td><%= if quest.point_reward_amount then image_tag "check_red.png" end %></td>
+            <td><%= if !quest.special_reward_description.blank? then image_tag "check_yellow.png" end %></td>
+          </tr>
+        <% end %>
+        </table>
+      </div>
+      <% end %>
+      <div class="span1">&nbsp</div>
+    </div>
+  </div>
+</div>
  
-
 <%= link_to 'New quest', new_quest_path %>
 
 
